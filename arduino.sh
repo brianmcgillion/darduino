@@ -4,17 +4,28 @@
 
 #    -v /dev/ttyACM0:/dev/ttyACM0 \
 #    -v /dev/ttyUSB0:/dev/ttyUSB0 \
-docker run \
-    -it \
-    --rm \
-    --network=host \
-    --privileged \
-    -e DISPLAY=$DISPLAY \
-    -v /tmp/.X11-unix:/tmp/.X11-unix \
-    -v /dev:/dev \
-    -v $HOME/topics:/topics \
-    -v $HOME/topics/arduino:/home/developer/Arduino \
-    --name arduino \
-    tombenke/darduino:v1.8.5 \
-    arduino
 
+# docker run \
+#     -it \
+#     --rm \
+#     --network=host \
+#     --privileged \
+#     -e DISPLAY=$DISPLAY \
+#     -v /tmp/.X11-unix:/tmp/.X11-unix \
+#     -v /dev:/dev \
+#     -v $HOME/code/arduino:/home/developer/arduino \
+#     --name arduino \
+#     arduino \
+#     arduino
+
+
+docker run \
+       -it \
+       --rm \
+       --network=host \
+       -e DISPLAY=$DISPLAY \
+       -v /tmp/.X11-unix:/tmp/.X11-unix \
+       -v $HOME/code/arduino:/home/developer/arduino \
+       --name arduino \
+       arduino \
+       arduino
